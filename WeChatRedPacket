@@ -22,7 +22,7 @@ public class Gift {
                 count++;
             }
         }
-        if(count>2){
+        if(count>n/2){
             return money;
         }
         return 0;
