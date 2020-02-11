@@ -1,0 +1,21 @@
+/*
+输入两个字符串，从第一个字符串中删除第二个字符串中所有的字符。
+*/
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str1=sc.nextLine();
+        String str2=sc.nextLine();
+        ArrayList<Character> list=new ArrayList<>();
+        for(int i=0;i<str1.length();i++){
+            if(!(str2.contains(str1.charAt(i)+""))){
+                list.add(str1.charAt(i));
+            }
+        }
+        for(int j=0;j<list.size();j++){
+            System.out.print(list.get(j)+"");
+        }
+    }
+}
