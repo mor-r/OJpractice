@@ -1,0 +1,32 @@
+/*
+输入一个整数，将这个整数以字符串的形式逆序输出，程序不考虑负数的情况，若数字含有0，则逆序形式也为0。
+*/
+//方法一
+import java.util.Scanner;
+public class Main2 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        if(num>0) {
+            String str = String.valueOf(num);
+            for(int i=str.length()-1;i>=0;i--){
+                System.out.print(str.charAt(i));
+            }
+        }
+    }
+}
+/*
+//方法二
+import java.util.Scanner;
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        if(num>0) {
+            String str = String.valueOf(num);
+            StringBuffer buffer = new StringBuffer(str);
+            System.out.println(buffer.reverse());
+        }
+    }
+}
+*/
