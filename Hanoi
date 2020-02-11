@@ -1,0 +1,16 @@
+public class Hanoi {//递归实现汉诺塔问题
+    public static void HanoiTower(int n,String source, String assist,String dest){
+        //n为盘子个数，source为原始柱子，assist为辅助柱子，dest为目标柱子
+        if(n==1){//若只有一个盘子，直接将它从source移到dest
+            System.out.println("move "+n+" from "+source+" to "+dest);
+            return;
+        }else{
+            HanoiTower(n-1,source,dest,assist);//先将上面n-1个盘子从source移到assist
+            System.out.println("move "+n+" from "+source+" to "+dest);//最下面的盘子可直接从source移到dest
+            HanoiTower(n-1,assist,source,dest);//最后再把n-1个盘子从assist移到dest
+        }
+    }
+    public static void main(String[] args) {
+        HanoiTower(3,"A","B","C");
+    }
+}
