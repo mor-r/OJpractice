@@ -1,0 +1,30 @@
+/*
+有一个X*Y的网格，一个机器人只能从格点且只能向右或向下走，要从最上角走到右下角。
+设计一个算法，计算机器人有多少种算法。
+给定两个正整数int x,int y，请返回机器人的走法数目。
+*/
+import java.util.*;
+public class Robot {
+    public int countWays(int x, int y) {
+        int[][] way=new int[x][y];
+        for(int i=0;i<x;i++){//第一行
+            way[0][i]=1;
+        }
+        for(int j=0;j<y;j++){//第一列
+            way[j][0]=1;
+        }
+        for(int i=1;i<x;i++){
+            for(int j=1;j<y;j++){
+                way[i][j]=way[i-1][j]+way[i][j-1];
+            }
+        }
+        return way[x-1][y-1];
+    }
+    public static void main(String[] args) {
+        Robot robot=new Robot();
+        Scanner in=new Scanner(System.in);
+        int m=in.nextInt();
+        int n=in.nextInt();
+        System.out.println(robot.countWays(m,n));
+    }
+}
