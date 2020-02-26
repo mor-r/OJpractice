@@ -12,10 +12,31 @@ nums2 = [2,5,6],       n = 3
 输出: [1,2,2,3,5,6]
 */
 
+
 //方法一
 class Solution {
   public void merge(int[] nums1, int m, int[] nums2, int n) {
     System.arraycopy(nums2, 0, nums1, m, n);
     Arrays.sort(nums1);
   }
+}
+
+//方法二
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int[] nums=new int[m];
+        System.arraycopy(nums1,0,nums,0,m);
+
+        int x=0,y=0,z=0;
+        while((x<m)&&(y<n)){
+            nums1[z++]=nums[x]<nums2[y]?nums[x++]:nums2[y++];
+        }
+
+        if(x<m){
+            System.arraycopy(nums,x,nums1,x+y,m+n-x-y);
+        }
+        if(y<n){
+            System.arraycopy(nums2,y,nums1,x+y,m+n-x-y);
+        }
+    }
 }
